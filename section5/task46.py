@@ -71,11 +71,14 @@ for i in res:
     for j in range(len(i)):
         if i[j].check_pos('動詞'):
             verb = i[j].get_base('動詞')
-            tmp = []
+            particles = []
+            surfaces = []
             for k in i:
                 if k.to == j:
                     item = k.get_base('助詞')
                     if item:
-                        tmp.append(item)
+                        particles.append(item)
+                    surfaces.append(k.get_info())
             print(verb,end='\t')
-            print(' '.join(tmp))
+            print(' '.join(particles),end='\t')
+            print(' '.join(surfaces))
